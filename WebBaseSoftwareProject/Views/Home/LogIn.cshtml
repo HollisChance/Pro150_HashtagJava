@@ -13,18 +13,16 @@
 <body>
     <form method="post" action="/ManInMiddle/senddata">
         <div>
-            <h3>Email:</h3><input type="text" name="email">
-            <br />
-            <h3>Password:</h3><input type="password" name="password">
+            @using (Html.BeginForm())
+            {
+            <h3>Email:</h3> @Html.TextBoxFor(x => x) <br />
+            <h3>Password:</h3> @Html.TextBoxFor(x => x) <br />
+            }
             <br />
             <input type="submit">
         </div>
     </form>
 
-    @*@using (Html.BeginForm())
-    {
-        <h3>Email:</h3> @Html.TextBoxFor(x => x.email) <br />
-
-    }*@
+   
 </body>
 </html>
