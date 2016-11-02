@@ -11,7 +11,20 @@
     <title>LogIn</title>
 </head>
 <body>
-    <div> 
-    </div>
+    <form method="post" action="/ManInMiddle/senddata">
+        <div>
+            <h3>Email:</h3><input type="text" name="email">
+            <br />
+            <h3>Password:</h3><input type="password" name="password">
+            <br />
+            <input type="submit">
+        </div>
+    </form>
+
+    @*@using (Html.BeginForm())
+    {
+        <h3>Email:</h3> @Html.TextBoxFor(x => x.email) <br />
+
+    }*@
 </body>
 </html>
