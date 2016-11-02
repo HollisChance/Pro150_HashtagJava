@@ -13,5 +13,12 @@ namespace WebBaseSoftwareProject.Controllers
         {
             return View();
         }
+
+        //[HttpPost]
+        //public ActionResult Test()
+        //{
+
+        //    return View();
+        //}
     }
 }
