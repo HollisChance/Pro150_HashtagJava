@@ -1,7 +1,49 @@
-﻿body {
-
+﻿body{
+    background-color: ;
+    background: radial-gradient(circle at 130% 100%, #ffffff, #091D26) fixed;
+    color: #ffffff;
 }
-div{
-    text-align:center;
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+   
+}
+
+nav ul{
+    background-color:#213640;
+    box-shadow: 10px 10px 60px 0px rgba(0,0,0,0.75);
+    margin-bottom: 50px;
+}
+nav li{
+    float: left;
+      
+}
+nav li a{
+    display: block;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px;
+    line-height: 50px;
+    text-decoration: none;
+    font-size: 20px;
+    float: center;
+    
+}
+nav li img{
+    width: 50px;
+    padding: 0 5px;
+}
+nav li a:hover{
+    background-color: #14455C;
+}
+footer{
+    width: 250px;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
