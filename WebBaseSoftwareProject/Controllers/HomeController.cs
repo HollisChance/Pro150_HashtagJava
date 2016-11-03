@@ -14,10 +14,14 @@ namespace WebBaseSoftwareProject.Controllers
             return View();
         }
 
+        public ActionResult LogIn()
+        {
+            return View();
+        }
+
         //[HttpPost]
         //public ActionResult Test()
         //{
-
         //    return View();
         //}
         //hello
