@@ -13,18 +13,16 @@
     <title>LogIn</title>
 </head>
 <body>
-    <form method="post" action="/ManInMiddle/senddata">
         <div>
+            <h1>ASCI ART IMAGE CONVERTER</h1>
             @using (Html.BeginForm())
             {
-            <strong>Email:</strong> @Html.TextBoxFor(x => x.UserName) <br />
+            <strong>UserName:</strong> @Html.TextBoxFor(x => x.UserName) <br />
+            <br />
             <strong>Password:</strong> @Html.TextBoxFor(x => x.Password) <br />
             }
             <br />
             <input type="submit">
         </div>
-    </form>
-
-   
 </body>
 </html>

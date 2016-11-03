@@ -15,6 +15,19 @@
 <body>
     <div>
 
+
+        <h1>Welcome To the ASCI Art Converter!</h1>
+        <h2 id="upload">To upload a file please click below</h2>
+        @using (Html.BeginForm())
+            {
+           <input type="button" name="Upload" id="upload"/>
+             }
+           
+        <h2 id="download">To dowload an already completed work please click here</h2>
+        @using (Html.BeginForm())
+            {
+            <input type="button" name="Download" id="download" />
+            }
     </div>
 </body>
 </html>
