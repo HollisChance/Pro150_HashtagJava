@@ -2,4 +2,6 @@
     background: radial-gradient(circle at 130% 100%, #ffffff, #091D26) fixed;
     color: #ffffff;
 }
-
+div{
+    text-align:center;
+}
