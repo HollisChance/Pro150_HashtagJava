@@ -11,7 +11,13 @@
     <title>Upload</title>
 </head>
 <body>
+    <h1>Upload your files to be converted to ascii versions.</h1>
     <div> 
+@using (Html.BeginForm())
+        { 
+            <strong>Picture:</strong> @Html.TextBoxFor(x => x.Picture) <br />
+        }
+         <input type="submit" text="Upload">
     </div>
 </body>
 </html>
