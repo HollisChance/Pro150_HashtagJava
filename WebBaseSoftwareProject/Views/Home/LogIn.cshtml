@@ -9,20 +9,22 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Style/main.css" />
     <title>LogIn</title>
 </head>
 <body>
-    <p>@ViewBag.error</p>
+    <form method="post" action="/ManInMiddle/senddata">
         <div>
             @using (Html.BeginForm())
             {
-            <h3>Email:</h3> @Html.TextBoxFor(x => x.UserName) <br />
-            <h3>Password:</h3> @Html.TextBoxFor(x => x.Password) <br />
-            <input type="submit">
+            <strong>Email:</strong> @Html.TextBoxFor(x => x.UserName) <br />
+            <strong>Password:</strong> @Html.TextBoxFor(x => x.Password) <br />
             }
             <br />
-            
+            <input type="submit">
         </div>
+    </form>
+
    
 </body>
 </html>
