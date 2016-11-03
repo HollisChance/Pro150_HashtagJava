@@ -1,4 +1,5 @@
-﻿
+﻿@using WebBaseSoftwareProject.Models
+@model User
 @{
     Layout = null;
 }
@@ -15,8 +16,8 @@
         <div>
             @using (Html.BeginForm())
             {
-            <h3>Email:</h3> @Html.TextBoxFor(x => x) <br />
-            <h3>Password:</h3> @Html.TextBoxFor(x => x) <br />
+            <h3>Email:</h3> @Html.TextBoxFor(x => x.UserName) <br />
+            <h3>Password:</h3> @Html.TextBoxFor(x => x.Password) <br />
             }
             <br />
             <input type="submit">
