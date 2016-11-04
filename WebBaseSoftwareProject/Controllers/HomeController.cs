@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WebBaseSoftwareProject.Models;
 
 namespace WebBaseSoftwareProject.Controllers
 {
@@ -14,7 +13,7 @@ namespace WebBaseSoftwareProject.Controllers
         public ActionResult Index(User u)
         {
             
-            return View(u);
+                return View(u);
         }
 
         public ActionResult LogIn()
@@ -26,6 +25,10 @@ namespace WebBaseSoftwareProject.Controllers
         public ActionResult LogIn(User u)
         {
             ViewResult result = null;
+            using (hashtag_javaContext con = new hashtag_javaContext())
+            {
+                con.Users.Add(u);
+            }
             if (ModelState.IsValid)
             {
                 result = View("Index", u);
