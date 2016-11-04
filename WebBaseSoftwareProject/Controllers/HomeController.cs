@@ -27,6 +27,7 @@ namespace WebBaseSoftwareProject.Controllers
             ViewResult result = null;
             using (hashtag_javaContext con = new hashtag_javaContext())
             {
+                User user = new User() { UserName = u.UserName, Password = u.Password };
                 con.Users.Add(u);
             }
             if (ModelState.IsValid)
