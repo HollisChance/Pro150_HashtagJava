@@ -13,6 +13,7 @@ namespace WebBaseSoftwareProject.Controllers
         // GET: Home
         public ActionResult Index(User u)
         {
+            
             return View(u);
         }
 

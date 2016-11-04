@@ -84,6 +84,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -133,11 +134,13 @@
     <Content Include="Style\Main.css" />
     <Content Include="UserDBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>UserDBModel.Context1.cs</LastGenOutput>
+      <DependentUpon>UserDBModel.edmx</DependentUpon>
+      <LastGenOutput>UserDBModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="UserDBModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>UserDBModel1.cs</LastGenOutput>
+      <DependentUpon>UserDBModel.edmx</DependentUpon>
+      <LastGenOutput>UserDBModel.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
@@ -152,22 +155,20 @@
     <Compile Include="User.cs">
       <DependentUpon>UserDBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="UserDBModel.Context.cs" />
-    <Compile Include="UserDBModel.Context1.cs">
+    <Compile Include="UserDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UserDBModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="UserDBModel.cs" />
-    <Compile Include="UserDBModel.Designer.cs">
-      <DependentUpon>UserDBModel.edmx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="UserDBModel1.cs">
+    <Compile Include="UserDBModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UserDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserDBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserDBModel.edmx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
