@@ -13,10 +13,10 @@ namespace WebBaseSoftwareProject
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class hashtag_javaEntities : DbContext
+    public partial class hashtag_javaContext : DbContext
     {
-        public hashtag_javaEntities()
-            : base("name=hashtag_javaEntities")
+        public hashtag_javaContext()
+            : base("name=hashtag_javaContext")
         {
         }
     
