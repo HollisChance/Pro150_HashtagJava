@@ -12,6 +12,19 @@ namespace WebBaseSoftwareProject.Models
 
         // will this work?????
 
+        public override bool Equals(object obj)
+        {
+            bool result = false;
+            if (obj.GetType() == typeof(User))
+            {
+                User u = obj as User;
+                if (UserName == u.UserName && Password == u.Password)
+                {
+                    result = true;
+                }
+            }
+            return result;
+        }
 
     }
 }
