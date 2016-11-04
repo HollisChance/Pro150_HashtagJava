@@ -8,11 +8,13 @@ div{
 h1{
     text-align:center;
 }
-#dowload
+#download
 {
-text-align: left;
+float:left;
+width:50%;
 }
 #upload
 {
- text-align: right;
+float:right;
+width:50%;
 }
