@@ -21,12 +21,18 @@ namespace WebBaseSoftwareProject.Controllers
             return View();
         }
 
+        public ActionResult FailedLogin()
+        {
+            return View("LogIn");
+        }
+
         [HttpPost]
         public ActionResult LogIn(User u)
         {
             ViewResult result = null;
             using (hashtag_javaContext con = new hashtag_javaContext())
             {
+                User user = new User() { UserName = u.UserName, Password = u.Password };
                 con.Users.Add(u);
             }
             if (ModelState.IsValid)
@@ -35,7 +41,7 @@ namespace WebBaseSoftwareProject.Controllers
             }
             else
             {
-                ViewBag.error = "Invalid user";
+                ViewBag.error = "Invalid username or password";
                 result = View();
             }
             return result;
