@@ -10,10 +10,21 @@ namespace WebBaseSoftwareProject.Controllers
     {
         User testUser = new User() { UserName = "Test", Password = "password" };
         // GET: Home
+        public ActionResult Index()
+        {
+            return View("LogIn");
+        }
+
+        [HttpPost]
         public ActionResult Index(User u)
         {
+            ViewResult result = View(u);
+            if (!ModelState.IsValid)
+            {
+                result = View("LogIn", u);
+            }
             
-                return View(u);
+            return result;
         }
 
         public ActionResult LogIn()
