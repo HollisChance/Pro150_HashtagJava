@@ -21,6 +21,11 @@ namespace WebBaseSoftwareProject.Controllers
             return View();
         }
 
+        public ActionResult FailedLogin()
+        {
+            return View("LogIn");
+        }
+
         [HttpPost]
         public ActionResult LogIn(User u)
         {
@@ -36,7 +41,7 @@ namespace WebBaseSoftwareProject.Controllers
             }
             else
             {
-                ViewBag.error = "Invalid user";
+                ViewBag.error = "Invalid username or password";
                 result = View();
             }
             return result;
