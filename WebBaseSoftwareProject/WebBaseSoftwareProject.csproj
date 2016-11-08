@@ -205,6 +205,7 @@
     <Content Include="UserDBModel.edmx.diagram">
       <DependentUpon>UserDBModel.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\hashtag.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
