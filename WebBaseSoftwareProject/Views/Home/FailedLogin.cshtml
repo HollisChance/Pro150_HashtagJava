@@ -1,4 +1,4 @@
-﻿
+﻿@using WebBaseSoftwareProject
 @{
     Layout = null;
 }
@@ -8,10 +8,19 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Style/Main.css" />
     <title>FailedLogin</title>
 </head>
 <body>
     <div> 
+        <h1>OOPS LOOKS LIKE YOU FAILED TO LOG IN!</h1>
+        <div id="Failure">
+            <h2>Try Again Below</h2>
+            @using (Html.BeginForm())
+            {
+                <input type="submit" value="Return To Sign In" />
+            }
+        </div>
     </div>
 </body>
 </html>

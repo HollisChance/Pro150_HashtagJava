@@ -11,14 +11,35 @@ namespace WebBaseSoftwareProject.Controllers
     {
         User testUser = new User() { UserName = "Test", Password = "password" };
         // GET: Home
+        public ActionResult Index()
+        {
+            return View("LogIn");
+        }
+
+        [HttpPost]
         public ActionResult Index(User u)
         {
+<<<<<<< HEAD
                 return View(u);
+=======
+            ViewResult result = View(u);
+            if (!ModelState.IsValid)
+            {
+                result = View("LogIn", u);
+            }
+            
+            return result;
+>>>>>>> origin/master
         }
 
         public ActionResult LogIn()
         {
             return View();
+        }
+
+        public ActionResult FailedLogin()
+        {
+            return View("LogIn");
         }
 
         [HttpPost]
@@ -27,6 +48,7 @@ namespace WebBaseSoftwareProject.Controllers
             ViewResult result = null;
             using (hashtag_javaEntities con = new hashtag_javaEntities())
             {
+                User user = new User() { UserName = u.UserName, Password = u.Password };
                 con.Users.Add(u);
                 con.SaveChanges();
             }
@@ -36,7 +58,7 @@ namespace WebBaseSoftwareProject.Controllers
             }
             else
             {
-                ViewBag.error = "Invalid user";
+                ViewBag.error = "Invalid username or password";
                 result = View();
             }
             return result;
