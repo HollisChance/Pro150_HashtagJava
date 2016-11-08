@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MySql.Data.MySqlClient;
 
 namespace WebBaseSoftwareProject.Controllers
 {
@@ -12,7 +13,6 @@ namespace WebBaseSoftwareProject.Controllers
         // GET: Home
         public ActionResult Index(User u)
         {
-            
                 return View(u);
         }
 
@@ -25,9 +25,10 @@ namespace WebBaseSoftwareProject.Controllers
         public ActionResult LogIn(User u)
         {
             ViewResult result = null;
-            using (hashtag_javaContext con = new hashtag_javaContext())
+            using (hashtag_javaEntities con = new hashtag_javaEntities())
             {
                 con.Users.Add(u);
+                con.SaveChanges();
             }
             if (ModelState.IsValid)
             {
