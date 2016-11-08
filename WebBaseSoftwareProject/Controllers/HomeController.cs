@@ -19,9 +19,6 @@ namespace WebBaseSoftwareProject.Controllers
         [HttpPost]
         public ActionResult Index(User u)
         {
-<<<<<<< HEAD
-                return View(u);
-=======
             ViewResult result = View(u);
             if (!ModelState.IsValid)
             {
@@ -29,7 +26,6 @@ namespace WebBaseSoftwareProject.Controllers
             }
             
             return result;
->>>>>>> origin/master
         }
 
         public ActionResult LogIn()
