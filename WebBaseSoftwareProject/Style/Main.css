@@ -29,11 +29,15 @@ width:50%;
 }
 #SpaceJam
 {
-      width:100%;
       text-align:center;
 }
 #cthulu
 {
     width:50%;
     float:right;
+}
+#java
+{
+    width:60%;
+    height:20%;
 }

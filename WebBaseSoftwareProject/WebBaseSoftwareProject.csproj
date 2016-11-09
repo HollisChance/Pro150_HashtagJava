@@ -143,9 +143,9 @@
     <Content Include="Global.asax" />
     <Resource Include="Images\cthulu.png" />
     <Resource Include="Images\Dwight.png" />
-    <Resource Include="Images\FS.jpg" />
     <Resource Include="Images\java.png" />
     <Resource Include="Images\SpaceJamlogoAscii.PNG" />
+    <Content Include="Images\FS.jpg" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Style\Main.css" />
