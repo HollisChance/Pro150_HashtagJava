@@ -24,13 +24,16 @@ width:50%;
 }
 #Dwight
 {
-text-align:left;
+    width:50%;
+    float:left;
 }
 #SpaceJam
 {
-text-align:center:
+      width:100%;
+      text-align:center;
 }
 #cthulu
 {
-     text-align: right;
+    width:50%;
+    float:right;
 }
