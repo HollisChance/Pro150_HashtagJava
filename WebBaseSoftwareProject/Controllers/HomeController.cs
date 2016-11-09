@@ -4,11 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MySql.Data.MySqlClient;
+using WebBaseSoftwareProject.Models;
 
 namespace WebBaseSoftwareProject.Controllers
 {
     public class HomeController : Controller
     {
+        DBFilter dbfilter = new DBFilter();
         User testUser = new User() { UserName = "Test", Password = "password" };
         // GET: Home
         public ActionResult Index()
@@ -23,8 +25,7 @@ namespace WebBaseSoftwareProject.Controllers
             if (!ModelState.IsValid)
             {
                 result = View("LogIn", u);
-            }
-            
+            }   
             return result;
         }
 
@@ -42,13 +43,8 @@ namespace WebBaseSoftwareProject.Controllers
         public ActionResult LogIn(User u)
         {
             ViewResult result = null;
-            using (hashtag_javaEntities con = new hashtag_javaEntities())
-            {
-                User user = new User() { UserName = u.UserName, Password = u.Password };
-                con.Users.Add(u);
-                con.SaveChanges();
-            }
-            if (ModelState.IsValid)
+            bool isLoggedIn = dbfilter.Login(u);
+            if (isLoggedIn)
             {
                 result = View("Index", u);
             }
