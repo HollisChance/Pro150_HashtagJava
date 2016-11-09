@@ -19,7 +19,7 @@
             {
             <strong>UserName:</strong> @Html.TextBoxFor(x => x.UserName) <br />
             <br />
-            <strong>Password:</strong> @Html.TextBoxFor(x => x.Password) <br />
+            <strong>Password:</strong> @Html.TextBoxFor(x => x.Password, new { Type = "password" }) <br />
             <br />
             <input type="submit">
             }
