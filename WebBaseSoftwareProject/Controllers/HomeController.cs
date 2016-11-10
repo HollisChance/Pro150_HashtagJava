@@ -23,9 +23,8 @@ namespace WebBaseSoftwareProject.Controllers
         {
             ViewResult result = View(u);
 
-            if (!ModelState.IsValid || !dbfilter.Login(u));
+            if (!ModelState.IsValid || !dbfilter.Login(u))
             {
-                ViewBag.error = "Invalid username or password";
                 result = View("LogIn", u);
             }   
             return result;
