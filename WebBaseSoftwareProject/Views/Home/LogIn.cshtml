@@ -10,6 +10,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/Style/Main.css" />
+    <script>document.getElementById("txtComment").value = "";</script>
     <title>LogIn</title>
 </head>
 <body>
@@ -21,13 +22,14 @@
             }
             @using (Html.BeginForm())
             {
-            <strong>UserName:</strong> @Html.TextBoxFor(x => x.UserName) <br />
+
+            <strong>UserName:</strong>  <a id="textcomment">@Html.TextBoxFor(x => x.UserName) </a><br />
             <br />
-            <strong>Password:</strong> @Html.TextBoxFor(x => x.Password, new { Type = "password" }) <br />
+            <strong>Password:</strong>  <a id="textcomment">@Html.TextBoxFor(x => x.Password, new { Type = "password" })</a> <br />
             <br />
             <input type="submit">
             }
-            <img src="~/Images/java.png" alt="The Project Name" id="java"/>
-        </div>
+            <img src="~/Images/java.png" alt="The Project Name" id="java" />
+</div>
 </body>
 </html>
