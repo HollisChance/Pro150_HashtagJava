@@ -15,6 +15,10 @@
 <body>
         <div>
             <h1>ASCI ART IMAGE CONVERTER</h1>
+            @if(ViewBag.error != null)
+            {
+                <h2>@ViewBag.error</h2>
+            }
             @using (Html.BeginForm())
             {
             <strong>UserName:</strong> @Html.TextBoxFor(x => x.UserName) <br />
