@@ -17,7 +17,10 @@ namespace WebBaseSoftwareProject.Controllers
         {
             return View("LogIn");
         }
-
+        public ActionResult SignUp()
+        {
+            return View();
+        }
         [HttpPost]
         public ActionResult Index(User u)
         {
@@ -56,5 +59,30 @@ namespace WebBaseSoftwareProject.Controllers
             }
             return result;
         }
+        [HttpPost]
+        public ActionResult SignUp(User u,string checkword)
+        {
+            ViewResult result = null;
+            bool signup = dbfilter.SignUp(u);
+            if(u.Password.Equals(checkword))
+            {
+                if (signup)
+                {
+                    result = View("Index", u);
+                }
+                else
+                {
+                    ViewBag.error = "Username already exists";
+                    result = View();
+                }
+            }
+            else
+            {
+                ViewBag.error = "Password do not match";
+                result = View();
+            }
+            return result;
+        }
     }
+   
 }

@@ -2,6 +2,7 @@
 @model User
 @{
     Layout = null;
+    string checkword = "";
 }
 
 <!DOCTYPE html>
@@ -11,28 +12,27 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/Style/Main.css" />
     <script>document.getElementById("txtComment").value = "";</script>
-    <title>LogIn</title>
+    <title>SignUp</title>
 </head>
 <body>
-    <div id="SignBar">
-@Html.ActionLink("Sign Up","SignUp");
-    </div>
-        <div>
-            <h1>ASCI ART IMAGE CONVERTER</h1>
-            @if(ViewBag.error != null)
-            {
-                <h2>@ViewBag.error</h2>
-            }
-            @using (Html.BeginForm())
-            {
+    <div>
+        <h1>ASCI ART IMAGE CONVERTER</h1>
+        @if (ViewBag.error != null)
+        {
+            <h2>@ViewBag.error</h2>
+        }
+        @using (Html.BeginForm())
+        {
 
             <strong>UserName:</strong>  <a id="textcomment">@Html.TextBoxFor(x => x.UserName) </a><br />
             <br />
             <strong>Password:</strong>  <a id="textcomment">@Html.TextBoxFor(x => x.Password, new { Type = "password" })</a> <br />
             <br />
+            <strong>Re-Enter Password:</strong>  <a id="textcomment">@Html.TextBox("checkword",checkword)</a> <br />
+            <br />
             <input type="submit">
-            }
-            <img src="~/Images/java.png" alt="The Project Name" id="java" />
-</div>
+        }
+        <img src="~/Images/FS.jpg" alt="The Pasta Lord" id="java" />
+    </div>
 </body>
 </html>
