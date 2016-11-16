@@ -13,23 +13,31 @@ namespace WebBaseSoftwareProject.Controllers
         DBFilter dbfilter = new DBFilter();
         User testUser = new User() { UserName = "Test", Password = "password" };
         // GET: Home
+        [HttpGet]
         public ActionResult Index()
         {
             return View("LogIn");
         }
+
+        public ActionResult Upload()
+        {
+            return View();
+        }
+
+        public ActionResult Download()
+        {
+            return View();
+        }
+
         public ActionResult SignUp()
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Index(User u)
         {
             ViewResult result = View(u);
-
-            if (!ModelState.IsValid || !dbfilter.Login(u))
-            {
-                result = View("LogIn", u);
-            }   
             return result;
         }
 
