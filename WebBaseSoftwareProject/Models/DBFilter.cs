@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MySql.Data.MySqlClient;
+using System.IO;
 
 namespace WebBaseSoftwareProject.Models
 {
@@ -49,6 +50,23 @@ namespace WebBaseSoftwareProject.Models
                 }
             }
             return accountCreated;
+        }
+
+        public bool StoreImage(HttpPostedFileBase file, int userID)
+        {
+            Image img = new Image();
+            MemoryStream target = new MemoryStream();
+            file.InputStream.CopyTo(target);
+            img.StoredImg = target.ToArray();
+            img.UserID = userID;
+            bool imgStored = false;
+            using (hashtag_javaEntities con = new hashtag_javaEntities())
+            {
+                con.Images.Add(img);
+                con.SaveChanges();
+                imgStored = true;
+            }
+            return imgStored;
         }
     }
 }
