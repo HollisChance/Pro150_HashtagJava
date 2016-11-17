@@ -164,6 +164,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Image.cs">
+      <DependentUpon>UserDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DBFilter.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -218,6 +221,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\HollisCAsciiArtLib\HollisCAsciiArtLib\HollisCAsciiArtLib.csproj">
+      <Project>{a7a2c615-0a6f-4fd3-bf89-d08dbdefb8f9}</Project>
+      <Name>HollisCAsciiArtLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

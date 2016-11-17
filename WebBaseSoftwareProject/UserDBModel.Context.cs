@@ -26,5 +26,6 @@ namespace WebBaseSoftwareProject
         }
     
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Image> Images { get; set; }
     }
 }
