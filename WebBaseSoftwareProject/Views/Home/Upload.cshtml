@@ -14,7 +14,7 @@
 <body>
     <h1>Upload your files to be converted to ascii versions.</h1>
     <div> 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype="multipart/form-data", id = "file" }))
 {
     <h2>Upload your picture</h2>
    <strong>Upload Below</strong><br />
