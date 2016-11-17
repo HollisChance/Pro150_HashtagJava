@@ -23,12 +23,12 @@ namespace WebBaseSoftwareProject.Controllers
         [HttpPost]
         public ActionResult Upload(HttpPostedFileBase file, User user)
         {
-           
+
             if (file != null && file.ContentLength > 0)
-            { 
+            {
                 try
                 {
-                    dbfilter.StoreImage(file, user.ID);           
+                    dbfilter.StoreImage(file, user.ID);
                 }
                 catch (Exception ex)
                 {
@@ -41,15 +41,15 @@ namespace WebBaseSoftwareProject.Controllers
             }
             return View();
         }
-
-        public ActionResult Upload()
+        [HttpGet]
+        public ActionResult Upload(User user)
         {
-            return View();
+            return View(user);
         }
-
-        public ActionResult Download()
+        [HttpGet]
+        public ActionResult Download(User user)
         {
-            return View();
+            return View(user);
         }
 
         public ActionResult SignUp()
@@ -91,11 +91,11 @@ namespace WebBaseSoftwareProject.Controllers
             return result;
         }
         [HttpPost]
-        public ActionResult SignUp(User u,string checkword)
+        public ActionResult SignUp(User u, string checkword)
         {
             ViewResult result = null;
             bool signup = dbfilter.SignUp(u);
-            if(u.Password.Equals(checkword))
+            if (u.Password.Equals(checkword))
             {
                 if (signup)
                 {
@@ -114,31 +114,5 @@ namespace WebBaseSoftwareProject.Controllers
             }
             return result;
         }
-<<<<<<< HEAD
-    }   
-=======
-        //[HttpPost]
-        //public ActionResult Index(HttpPostedFileBase file)
-        //{
-        //    if (file != null && file.ContentLength > 0)
-        //        try
-        //        {
-        //            string path = Path.Combine(Server.MapPath("~/Images"),
-        //                                       Path.GetFileName(file.FileName));
-        //            file.SaveAs(path);
-        //            ViewBag.Message = "File uploaded successfully";
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            ViewBag.Message = "ERROR:" + ex.Message.ToString();
-        //        }
-        //    else
-        //    {
-        //        ViewBag.Message = "You have not specified a file.";
-        //    }
-        //    return View();
-        //}
     }
-   
->>>>>>> origin/master
 }
