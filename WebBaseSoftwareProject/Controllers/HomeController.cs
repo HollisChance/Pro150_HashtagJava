@@ -64,6 +64,24 @@ namespace WebBaseSoftwareProject.Controllers
             return result;
         }
 
+        [HttpPost]
+        public ActionResult LogIn(User u)
+        {
+            ViewResult result = null;
+            bool isLoggedIn = dbfilter.Login(u);
+            if (isLoggedIn)
+            {
+                u = dbfilter.FetchUser(u.UserName);
+                result = View("Index", u);
+            }
+            else
+            {
+                ViewBag.error = "Invalid username or password";
+                result = View();
+            }
+            return result;
+        }
+
         public ActionResult LogIn()
         {
             return View();
@@ -74,22 +92,7 @@ namespace WebBaseSoftwareProject.Controllers
             return View("LogIn");
         }
 
-        [HttpPost]
-        public ActionResult LogIn(User u)
-        {
-            ViewResult result = null;
-            bool isLoggedIn = dbfilter.Login(u);
-            if (isLoggedIn)
-            {
-                result = View("Index", u);
-            }
-            else
-            {
-                ViewBag.error = "Invalid username or password";
-                result = View();
-            }
-            return result;
-        }
+        
         [HttpPost]
         public ActionResult SignUp(User u, string checkword)
         {
@@ -99,6 +102,7 @@ namespace WebBaseSoftwareProject.Controllers
             {
                 if (signup)
                 {
+                    u = dbfilter.FetchUser(u.UserName);
                     result = View("Index", u);
                 }
                 else

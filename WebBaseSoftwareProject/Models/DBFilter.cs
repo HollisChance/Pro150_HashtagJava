@@ -12,7 +12,16 @@ namespace WebBaseSoftwareProject.Models
     {
         public DBFilter()
         {
+        }
 
+        public User FetchUser(string userName)
+        {
+            User user = null;
+            using (hashtag_javaEntities con = new hashtag_javaEntities())
+            {
+                user = con.Users.Where(u => u.UserName == userName).FirstOrDefault();
+            }
+            return user;
         }
 
         public bool Login(User passedUser)
@@ -25,6 +34,7 @@ namespace WebBaseSoftwareProject.Models
                 {
                     if (user.Password == passedUser.Password)
                     {
+                        passedUser = user;
                         isLoggedIn = true;
                     }
                     else
