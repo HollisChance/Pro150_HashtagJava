@@ -19,12 +19,12 @@
         <h1>Welcome To the ASCI Art Converter!</h1>
         <div id="upload">
             <h2>To upload a file please click below</h2>
-            @Html.ActionLink("Upload", "Upload")
+            @Html.ActionLink("Upload", "Upload", Model)
         </div>
         
          <div id="download">
              <h2>To dowload an already completed work please click here</h2>
-               @Html.ActionLink("Download", "Download")
+               @Html.ActionLink("Download", "Download", Model)
            </div>
         <div id="SpaceJam">
             <img src="~/Images/SpaceJamlogoAscii.png" alt="MichealJordansBestMovie" />

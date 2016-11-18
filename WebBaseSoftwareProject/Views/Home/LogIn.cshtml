@@ -23,9 +23,8 @@
             {
                 <h2>@ViewBag.error</h2>
             }
-            @using (Html.BeginForm())
+            @using (Html.BeginForm("LogIn", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
-
             <strong>UserName:</strong>  <a id="textcomment">@Html.TextBoxFor(x => x.UserName) </a><br />
             <br />
             <strong>Password:</strong>  <a id="textcomment">@Html.TextBoxFor(x => x.Password, new { Type = "password" })</a> <br />
