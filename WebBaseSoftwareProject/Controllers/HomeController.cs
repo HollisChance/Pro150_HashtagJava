@@ -22,6 +22,14 @@ namespace WebBaseSoftwareProject.Controllers
         }
 
         [HttpPost]
+        public ActionResult Download(Image image)
+        {
+            //image.ReturnAscii(); Either transfer image to ascii for download or store ascii in DB   
+            return View();
+        }
+
+
+        [HttpPost]
         public ActionResult Upload(HttpPostedFileBase file, User user)
         {
 
@@ -42,6 +50,7 @@ namespace WebBaseSoftwareProject.Controllers
             }
             return View();
         }
+
         [HttpGet]
         public ActionResult Upload(User user)
         {

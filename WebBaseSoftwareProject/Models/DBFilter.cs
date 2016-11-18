@@ -72,6 +72,7 @@ namespace WebBaseSoftwareProject.Models
             bool imgStored = false;
             using (hashtag_javaEntities con = new hashtag_javaEntities())
             {
+                //img.ReturnAscii(); will transfer to ascii and store it to blob
                 con.Images.Add(img);
                 con.SaveChanges();
                 imgStored = true;
