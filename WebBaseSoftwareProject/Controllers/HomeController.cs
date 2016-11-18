@@ -13,6 +13,7 @@ namespace WebBaseSoftwareProject.Controllers
     {
         DBFilter dbfilter = new DBFilter();
         User testUser = new User() { UserName = "Test", Password = "password" };
+
         // GET: Home
         [HttpGet]
         public ActionResult Index()
