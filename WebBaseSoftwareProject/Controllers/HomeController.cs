@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using MySql.Data.MySqlClient;
 using WebBaseSoftwareProject.Models;
 using System.IO;
+using HollisCAsciiArtLib.Controller;
 
 namespace WebBaseSoftwareProject.Controllers
 {
@@ -32,7 +33,10 @@ namespace WebBaseSoftwareProject.Controllers
         [HttpPost]
         public ActionResult Upload(HttpPostedFileBase file, User user)
         {
-
+            ArtGenerator gen = new ArtGenerator();
+            ImageFileIO IO = new ImageFileIO();
+            System.Drawing.Image img = ImageFileIO.ImageFromFile(@"C:\Users\chance\Documents\Visual Studio 2015\ProjectsCourse-Web\WebSoftwareProject\Pro150_HashtagJava\WebBaseSoftwareProject\Images\java_logo6.jpg");
+            ViewBag.Art = gen.MakeArt(img);
             if (file != null && file.ContentLength > 0)
             {
                 try

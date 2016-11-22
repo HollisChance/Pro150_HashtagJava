@@ -143,6 +143,7 @@
     <Content Include="Images\FS.jpg" />
     <Content Include="Images\java.png" />
     <Resource Include="Images\SpaceJamlogoAscii.PNG" />
+    <Resource Include="Images\java_logo6.jpg" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Style\Main.css" />
@@ -168,6 +169,7 @@
       <DependentUpon>UserDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DBFilter.cs" />
+    <Compile Include="Models\Image.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs">

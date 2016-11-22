@@ -20,10 +20,14 @@
     <h2>Upload your picture</h2>
    <strong>Upload Below</strong><br />
     <input type="file" name="file" id="file" /><br />
-    <input type="range" min="-1" max="-16777216" id="value"/>
-    <a id="textcomment">@Html.TextBoxFor(x => x.DarkValue) </a><br />
+    @*<input type="range" min="-1" max="-16777216" id="value"/>
+    <a id="textcomment">@Html.TextBoxFor(x => x.DarkValue) </a><br />*@
     <input type="submit" text="Upload" />
     }
+        <p>
+            Art: <br />
+            @ViewBag.Art
+        </p>
 </div>
 </body>
 </html>
