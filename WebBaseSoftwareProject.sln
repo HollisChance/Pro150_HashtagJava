@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBaseSoftwareProject", "WebBaseSoftwareProject\WebBaseSoftwareProject.csproj", "{B6893CC9-6B05-46C7-BDD3-7F8E3AF12834}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HollisCAsciiArtLib", "..\..\HollisCAsciiArtLib\HollisCAsciiArtLib\HollisCAsciiArtLib.csproj", "{A7A2C615-0A6F-4FD3-BF89-D08DBDEFB8F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HollisCAsciiArtLib", "HollisCAsciiArtLib\HollisCAsciiArtLib\HollisCAsciiArtLib.csproj", "{A7A2C615-0A6F-4FD3-BF89-D08DBDEFB8F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

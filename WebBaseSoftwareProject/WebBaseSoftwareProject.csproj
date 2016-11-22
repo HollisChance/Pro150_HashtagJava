@@ -143,7 +143,6 @@
     <Content Include="Images\FS.jpg" />
     <Content Include="Images\java.png" />
     <Resource Include="Images\SpaceJamlogoAscii.PNG" />
-    <Resource Include="Images\java_logo6.jpg" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Style\Main.css" />
@@ -223,12 +222,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\HollisCAsciiArtLib\HollisCAsciiArtLib\HollisCAsciiArtLib.csproj">
-      <Project>{a7a2c615-0a6f-4fd3-bf89-d08dbdefb8f9}</Project>
-      <Name>HollisCAsciiArtLib</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
