@@ -223,6 +223,12 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HollisCAsciiArtLib\HollisCAsciiArtLib\HollisCAsciiArtLib.csproj">
+      <Project>{A7A2C615-0A6F-4FD3-BF89-D08DBDEFB8F9}</Project>
+      <Name>HollisCAsciiArtLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
