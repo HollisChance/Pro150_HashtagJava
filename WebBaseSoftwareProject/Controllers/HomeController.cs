@@ -35,7 +35,9 @@ namespace WebBaseSoftwareProject.Controllers
         {
             ArtGenerator gen = new ArtGenerator();
             ImageFileIO IO = new ImageFileIO();
-            System.Drawing.Image img = ImageFileIO.ImageFromFile(@"C:\Users\chance\Documents\Visual Studio 2015\ProjectsCourse-Web\WebSoftwareProject\Pro150_HashtagJava\WebBaseSoftwareProject\Images\java_logo6.jpg");
+            
+            //System.Drawing.Image img = ImageFileIO.ImageFromFile(@"C:\Users\chance\Documents\Visual Studio 2015\ProjectsCourse-Web\WebSoftwareProject\Pro150_HashtagJava\WebBaseSoftwareProject\Images\java_logo6.jpg");
+            System.Drawing.Image img = ImageFileIO.ImageFromFile(file);
             ViewBag.Art = gen.MakeArt(img);
             if (file != null && file.ContentLength > 0)
             {
