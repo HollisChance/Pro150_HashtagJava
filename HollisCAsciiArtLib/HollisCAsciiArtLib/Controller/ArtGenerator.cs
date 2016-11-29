@@ -10,7 +10,7 @@ namespace HollisCAsciiArtLib.Controller
 {
     public class ArtGenerator
     {
-        private ArtOptions defaultOptions = new ArtOptions { DarkChar = "#", MedChar = "!", LightChar = " ", LightValue = -1, DarkValue = 11500000 };
+        private ArtOptions defaultOptions = new ArtOptions { DarkChar = "@", MedChar = "/s", LightChar = "!", LightValue = -1, DarkValue = 11500000 };
         public string MakeArt(Image img, ArtOptions options = null)
         {
             if (options == null)
@@ -23,7 +23,7 @@ namespace HollisCAsciiArtLib.Controller
 
             Bitmap bmp = new Bitmap(ImageFormatter.FormatForAscii(newImg));
 
-            Console.WindowWidth = bmp.Width + 10;
+            //Console.WindowWidth = bmp.Width + 10;
 
             //Bitmap bmp = new Bitmap(newImg);
             
