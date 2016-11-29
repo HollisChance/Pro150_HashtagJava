@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MySql.Data.MySqlClient;
 using System.IO;
+using System.Drawing.Imaging;
 
 namespace WebBaseSoftwareProject.Models
 {
@@ -68,7 +70,7 @@ namespace WebBaseSoftwareProject.Models
             MemoryStream target = new MemoryStream();
             file.InputStream.CopyTo(target);
             img.StoredImg = target.ToArray();
-            img.UserID = userID;
+            img.User_ID = userID;
             bool imgStored = false;
             using (hashtag_javaEntities con = new hashtag_javaEntities())
             {
@@ -78,6 +80,26 @@ namespace WebBaseSoftwareProject.Models
                 imgStored = true;
             }
             return imgStored;
+        }
+
+        public void GetImageOrText(int ImgID)
+        {
+            byte[] file;
+            
+            using (hashtag_javaEntities con = new hashtag_javaEntities())
+            {
+                file = con.Images.Where(i => i.ImgId == ImgID).Single().StoredImg;
+
+                /*To return Image
+                using (System.Drawing.Image image = System.Drawing.Image.FromStream(new MemoryStream(file)))
+                {
+                    image.Save("output.jpg", ImageFormat.Jpeg);  // Or Png
+                }*/
+
+                //To write byte[] to text file
+                //File.WriteAllBytes("PlaceHolder", file);
+
+            }
         }
     }
 }

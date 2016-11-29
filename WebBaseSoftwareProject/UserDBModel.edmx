@@ -10,8 +10,8 @@
             <PropertyRef Name="ImgId" />
           </Key>
           <Property Name="ImgId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserID" Type="int" Nullable="false" />
-          <Property Name="StoredImg" Type="blob" Nullable="false" />
+          <Property Name="User_ID" Type="int" Nullable="false" />
+          <Property Name="StoredImg" Type="mediumblob" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -46,8 +46,8 @@
             <PropertyRef Name="ImgId" />
           </Key>
           <Property Name="ImgId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserID" Type="Int32" Nullable="false" />
           <Property Name="StoredImg" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="User_ID" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -67,8 +67,8 @@
           <EntitySetMapping Name="Images">
             <EntityTypeMapping TypeName="hashtag_java.Image">
               <MappingFragment StoreEntitySet="Image">
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
                 <ScalarProperty Name="StoredImg" ColumnName="StoredImg" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="ImgId" ColumnName="ImgId" />
               </MappingFragment>
             </EntityTypeMapping>

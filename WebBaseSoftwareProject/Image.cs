@@ -15,7 +15,7 @@ namespace WebBaseSoftwareProject
     public partial class Image
     {
         public int ImgId { get; set; }
-        public int UserID { get; set; }
         public byte[] StoredImg { get; set; }
+        public int User_ID { get; set; }
     }
 }
