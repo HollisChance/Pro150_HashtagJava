@@ -36,7 +36,7 @@ namespace WebBaseSoftwareProject.Controllers
             ArtGenerator gen = new ArtGenerator();
             ImageFileIO IO = new ImageFileIO();
 
-            
+            string art;
             MemoryStream target = new MemoryStream();
             file.InputStream.CopyTo(target);
             byte[] imageBytes = target.ToArray();
@@ -47,24 +47,26 @@ namespace WebBaseSoftwareProject.Controllers
 
             if (img != null)
             {
-                ViewBag.Art = gen.MakeArt(img);
+                art = gen.MakeArt(img);
+                ViewBag.Art = art;
+                if (art != null)
+                {
+                    try
+                    {
+                        dbfilter.StoreImage(art, user.ID);
+                    }
+                    catch (Exception ex)
+                    {
+                        ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                    }
+                }
+                else
+                {
+                    ViewBag.Message = "You have not specified a file.";
+                }
             }
             
-            if (file != null && file.ContentLength > 0)
-            {
-                try
-                {
-                    dbfilter.StoreImage(file, user.ID);
-                }
-                catch (Exception ex)
-                {
-                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
-                }
-            }
-            else
-            {
-                ViewBag.Message = "You have not specified a file.";
-            }
+            
             return View();
         }
 
