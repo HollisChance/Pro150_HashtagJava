@@ -35,10 +35,21 @@ namespace WebBaseSoftwareProject.Controllers
         {
             ArtGenerator gen = new ArtGenerator();
             ImageFileIO IO = new ImageFileIO();
+
             
+            MemoryStream target = new MemoryStream();
+            file.InputStream.CopyTo(target);
+            byte[] imageBytes = target.ToArray();
+
+            System.Drawing.Image img = new System.Drawing.Bitmap(target);
             //System.Drawing.Image img = ImageFileIO.ImageFromFile(@"C:\Users\chance\Documents\Visual Studio 2015\ProjectsCourse-Web\WebSoftwareProject\Pro150_HashtagJava\WebBaseSoftwareProject\Images\java_logo6.jpg");
-            System.Drawing.Image img = ImageFileIO.ImageFromFile(file);
-            ViewBag.Art = gen.MakeArt(img);
+            //System.Drawing.Image newImg = ImageFileIO.ImageFromFile(file.FileName);
+
+            if (img != null)
+            {
+                ViewBag.Art = gen.MakeArt(img);
+            }
+            
             if (file != null && file.ContentLength > 0)
             {
                 try
