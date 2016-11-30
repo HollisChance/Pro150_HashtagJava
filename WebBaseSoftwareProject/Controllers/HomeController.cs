@@ -7,13 +7,15 @@ using MySql.Data.MySqlClient;
 using WebBaseSoftwareProject.Models;
 using System.IO;
 using HollisCAsciiArtLib.Controller;
+using HollisCAsciiArtLib.Model;
 
 namespace WebBaseSoftwareProject.Controllers
 {
+
     public class HomeController : Controller
     {
-        DBFilter dbfilter = new DBFilter();
         User testUser = new User() { UserName = "Test", Password = "password" };
+        DBFilter dbfilter = new DBFilter();
 
         // GET: Home
         [HttpGet]
@@ -33,14 +35,12 @@ namespace WebBaseSoftwareProject.Controllers
             return File(file, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
         }
 
-
         [HttpPost]
-        public ActionResult Upload(HttpPostedFileBase file, User user)
+        public ActionResult Upload(HttpPostedFileBase file, User user, ArtOptions settings = null)
         {
             ArtGenerator gen = new ArtGenerator();
             ImageFileIO IO = new ImageFileIO();
-
-            string art;
+            
             MemoryStream target = new MemoryStream();
             file.InputStream.CopyTo(target);
             byte[] imageBytes = target.ToArray();
@@ -51,26 +51,24 @@ namespace WebBaseSoftwareProject.Controllers
 
             if (img != null)
             {
-                art = gen.MakeArt(img);
-                ViewBag.Art = art;
-                if (art != null)
-                {
-                    try
-                    {
-                        dbfilter.StoreImage(art, user.ID);
-                    }
-                    catch (Exception ex)
-                    {
-                        ViewBag.Message = "ERROR:" + ex.Message.ToString();
-                    }
-                }
-                else
-                {
-                    ViewBag.Message = "You have not specified a file.";
-                }
+                ViewBag.Art = gen.MakeArt(img);
             }
             
-            
+            if (file != null && file.ContentLength > 0)
+            {
+                try
+                {
+                    dbfilter.StoreImage(ViewBag.art, user.ID);
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                }
+            }
+            else
+            {
+                ViewBag.Message = "You have not specified a file.";
+            }
             return View();
         }
 

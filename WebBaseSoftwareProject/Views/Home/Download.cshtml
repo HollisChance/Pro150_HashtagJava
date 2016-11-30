@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿@model List<Image>
 @{
     Image i = new Image();    if (Model != null && Model.Count() > 0)
@@ -31,3 +32,29 @@
         </div>
 </body>
 </html>
+=======
+﻿@model User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Style/Main.css" />
+    <title>Download</title>
+</head>
+<body>
+        <h1>Welcome To the ASCI Art Converter!</h1>
+        <div id="links">
+            <h2>Download your picture</h2>
+           @using (Html.BeginForm("Dowload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+           {
+
+           }
+        </div>
+</body>
+</html>
+>>>>>>> origin/master

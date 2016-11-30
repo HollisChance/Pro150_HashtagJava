@@ -21,17 +21,22 @@
         {
             <h2>@ViewBag.error</h2>
         }
-        @using (Html.BeginForm("SignUp", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-        {
-            //here stuuffss
-            <strong>UserName:</strong>  <a id="textcomment">@Html.TextBoxFor(x => x.UserName) </a><br />
-            <br />
-            <strong>Password:</strong>  <a id="textcomment">@Html.TextBoxFor(x => x.Password, new { Type = "password" })</a> <br />
-            <br />
-            <strong>Re-Enter Password:</strong>  <a id="textcomment">@Html.TextBox("checkword",checkword)</a> <br />
-            <br />
-            <input type="submit">
-        }
+        <div id="links">
+            @using (Html.BeginForm("SignUp", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div id="sign">
+
+                </div>
+                //here stuuffss
+                <strong>UserName:</strong>  <a id="textcomment">@Html.TextBoxFor(x => x.UserName) </a><br />
+                <br />
+                <strong>Password:</strong>  <a id="textcomment">@Html.TextBoxFor(x => x.Password, new { Type = "password" })</a> <br />
+                <br />
+                <strong>Re-Enter Password:</strong>  <a id="textcomment">@Html.TextBox("checkword", checkword)</a> <br />
+                <br />
+                <input type="submit">
+            }
+        </div>
         <img src="~/Images/FS.jpg" alt="The Pasta Lord" id="java" />
     </div>
 </body>
