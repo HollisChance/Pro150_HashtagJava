@@ -1,5 +1,13 @@
-﻿@model User
+﻿@model List<Image>
 @{
+    Image i = new Image();    if (Model != null && Model.Count() > 0)
+    {
+        i = Model.ElementAt(0);
+    }
+    else
+    {
+        i = new Image { ImgId = 1 };
+    }
     Layout = null;
 }
 
@@ -17,6 +25,7 @@
             <h2>Download your picture</h2>
             @using (Html.BeginForm())
             {
+                @Html.DropDownListFor(x => i.ImgId, new SelectList(Model, "ImgId", "ImgId") as SelectList, "Choose...")
                 <input type="submit" text="Dowload">
             }
         </div>

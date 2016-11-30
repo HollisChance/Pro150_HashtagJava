@@ -23,10 +23,14 @@ namespace WebBaseSoftwareProject.Controllers
         }
 
         [HttpPost]
-        public ActionResult Download(Image image)
+        public FileResult Download(Image image)
         {
-            //image.ReturnAscii(); Either transfer image to ascii for download or store ascii in DB   
-            return View();
+            //image.ReturnAscii(); Either transfer image to ascii for download or store ascii in DB
+            byte[] file;
+            file = dbfilter.GetText(image.ImgId);
+            string userName = dbfilter.FetchUserNameById(image.User_ID);
+            string fileName = userName + "-" + image.ImgId + ".txt";   
+            return File(file, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
         }
 
 
@@ -78,7 +82,8 @@ namespace WebBaseSoftwareProject.Controllers
         [HttpGet]
         public ActionResult Download(User user)
         {
-            return View(user);
+            List<Image> images = dbfilter.FetchUserImages(user.ID);
+            return View(images);
         }
 
         public ActionResult SignUp()
