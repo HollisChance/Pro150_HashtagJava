@@ -1,14 +1,8 @@
-<<<<<<< HEAD
-﻿@model List<Image>
+@using WebBaseSoftwareProject
+@model List<Image>
 @{
-    Image i = new Image();    if (Model != null && Model.Count() > 0)
-    {
-        i = Model.ElementAt(0);
-    }
-    else
-    {
-        i = new Image { ImgId = 1 };
-    }
+    //Image i = Model.ElementAt(0);
+    SelectList list = new SelectList(Model, "ImgId", "ImgId");
     Layout = null;
 }
 
@@ -24,37 +18,12 @@
         <h1>Welcome To the ASCI Art Converter!</h1>
         <div>
             <h2>Download your picture</h2>
-            @using (Html.BeginForm())
+            @using (Html.BeginForm("Download", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
-                @Html.DropDownListFor(x => i.ImgId, new SelectList(Model, "ImgId", "ImgId") as SelectList, "Choose...")
-                <input type="submit" text="Dowload">
+                @Html.DropDownListFor(x => new Image().ImgId, list, "Choose...")
+                @Html.HiddenFor(x => new Image().User_ID)
+                <button type="submit">Download ASCII file</button>
             }
         </div>
 </body>
 </html>
-=======
-﻿@model User
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="~/Style/Main.css" />
-    <title>Download</title>
-</head>
-<body>
-        <h1>Welcome To the ASCI Art Converter!</h1>
-        <div id="links">
-            <h2>Download your picture</h2>
-           @using (Html.BeginForm("Dowload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-           {
-
-           }
-        </div>
-</body>
-</html>
->>>>>>> origin/master
