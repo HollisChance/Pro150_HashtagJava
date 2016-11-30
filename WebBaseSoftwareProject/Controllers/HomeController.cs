@@ -30,8 +30,9 @@ namespace WebBaseSoftwareProject.Controllers
             //image.ReturnAscii(); Either transfer image to ascii for download or store ascii in DB
             byte[] file;
             file = dbfilter.GetText(image.ImgId);
-            
-            string fileName =   "ASCII" + image.ImgId + ".txt";   
+            int userId = dbfilter.FetchUserIdByImgId(image.ImgId);
+            string userName = dbfilter.FetchUserNameById(userId);
+            string fileName =   userName + "-" + image.ImgId + ".txt";   
             return File(file, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
         }
 

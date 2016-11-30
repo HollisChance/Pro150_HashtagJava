@@ -37,6 +37,16 @@ namespace WebBaseSoftwareProject.Models
             return user;
         }
 
+        public int FetchUserIdByImgId(int ImgId)
+        {
+            int user = 0;
+            using (hashtag_javaEntities con = new hashtag_javaEntities())
+            {
+                user = con.Images.Where(u => u.ImgId == ImgId).FirstOrDefault().User_ID;
+            }
+            return user;
+        }
+
         public bool Login(User passedUser)
         {
             bool isLoggedIn = false;
