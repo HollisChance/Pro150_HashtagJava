@@ -35,25 +35,41 @@ namespace WebBaseSoftwareProject.Controllers
         {
             ArtGenerator gen = new ArtGenerator();
             ImageFileIO IO = new ImageFileIO();
-            
+
+            string art;
+            MemoryStream target = new MemoryStream();
+            file.InputStream.CopyTo(target);
+            byte[] imageBytes = target.ToArray();
+
+            System.Drawing.Image img = new System.Drawing.Bitmap(target);
             //System.Drawing.Image img = ImageFileIO.ImageFromFile(@"C:\Users\chance\Documents\Visual Studio 2015\ProjectsCourse-Web\WebSoftwareProject\Pro150_HashtagJava\WebBaseSoftwareProject\Images\java_logo6.jpg");
             System.Drawing.Image img = ImageFileIO.ImageFromFile("/Images/FS.jpg");
+            //System.Drawing.Image newImg = ImageFileIO.ImageFromFile(file.FileName);
+
             ViewBag.Art = gen.MakeArt(img);
+            if (img != null)
             if (file != null && file.ContentLength > 0)
             {
-                try
+                art = gen.MakeArt(img);
+                ViewBag.Art = art;
+                if (art != null)
                 {
-                    dbfilter.StoreImage(file, user.ID);
+                    try
+                    {
+                        dbfilter.StoreImage(art, user.ID);
+                    }
+                    catch (Exception ex)
+                    {
+                        ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                    ViewBag.Message = "You have not specified a file.";
                 }
             }
-            else
-            {
-                ViewBag.Message = "You have not specified a file.";
-            }
+            
+            
             return View();
         }
 

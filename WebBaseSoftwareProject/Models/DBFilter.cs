@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using MySql.Data.MySqlClient;
 using System.IO;
 using System.Drawing.Imaging;
+using System.Text;
 
 namespace WebBaseSoftwareProject.Models
 {
@@ -64,14 +65,13 @@ namespace WebBaseSoftwareProject.Models
             return accountCreated;
         }
 
-        public bool StoreImage(HttpPostedFileBase file, int userID)
+        public bool StoreImage(string ascii, int userID)
         {
             Image img = new Image();
             MemoryStream target = new MemoryStream();
-            file.InputStream.CopyTo(target);
-            img.StoredImg = target.ToArray();
             img.User_ID = userID;
             bool imgStored = false;
+            img.StoredImg = Encoding.ASCII.GetBytes(ascii);
             using (hashtag_javaEntities con = new hashtag_javaEntities())
             {
                 //img.ReturnAscii(); will transfer to ascii and store it to blob
