@@ -35,7 +35,6 @@ namespace WebBaseSoftwareProject.Controllers
         {
             ArtGenerator gen = new ArtGenerator();
             ImageFileIO IO = new ImageFileIO();
-
             
             MemoryStream target = new MemoryStream();
             file.InputStream.CopyTo(target);
