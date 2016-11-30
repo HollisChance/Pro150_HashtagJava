@@ -43,7 +43,6 @@ namespace WebBaseSoftwareProject.Controllers
 
             System.Drawing.Image img = new System.Drawing.Bitmap(target);
             //System.Drawing.Image img = ImageFileIO.ImageFromFile(@"C:\Users\chance\Documents\Visual Studio 2015\ProjectsCourse-Web\WebSoftwareProject\Pro150_HashtagJava\WebBaseSoftwareProject\Images\java_logo6.jpg");
-            System.Drawing.Image img = ImageFileIO.ImageFromFile("/Images/FS.jpg");
             //System.Drawing.Image newImg = ImageFileIO.ImageFromFile(file.FileName);
 
             ViewBag.Art = gen.MakeArt(img);

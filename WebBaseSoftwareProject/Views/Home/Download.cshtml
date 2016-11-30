@@ -15,10 +15,10 @@
         <h1>Welcome To the ASCI Art Converter!</h1>
         <div>
             <h2>Download your picture</h2>
-            @using (Html.BeginForm())
-            {
-                <input type="submit" text="Dowload">
-            }
+           @using (Html.BeginForm("Dowload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+           {
+
+           }
         </div>
 </body>
 </html>
