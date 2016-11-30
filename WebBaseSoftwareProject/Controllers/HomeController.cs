@@ -53,7 +53,7 @@ namespace WebBaseSoftwareProject.Controllers
             {
                 try
                 {
-                    dbfilter.StoreImage(file, user.ID);
+                    dbfilter.StoreImage(ViewBag.art, user.ID);
                 }
                 catch (Exception ex)
                 {
