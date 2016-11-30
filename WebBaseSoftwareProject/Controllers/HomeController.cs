@@ -7,13 +7,15 @@ using MySql.Data.MySqlClient;
 using WebBaseSoftwareProject.Models;
 using System.IO;
 using HollisCAsciiArtLib.Controller;
+using HollisCAsciiArtLib.Model;
 
 namespace WebBaseSoftwareProject.Controllers
 {
+
     public class HomeController : Controller
     {
-        DBFilter dbfilter = new DBFilter();
         User testUser = new User() { UserName = "Test", Password = "password" };
+        DBFilter dbfilter = new DBFilter();
 
         // GET: Home
         [HttpGet]
@@ -29,9 +31,8 @@ namespace WebBaseSoftwareProject.Controllers
             return View();
         }
 
-
         [HttpPost]
-        public ActionResult Upload(HttpPostedFileBase file, User user)
+        public ActionResult Upload(HttpPostedFileBase file, User user, ArtOptions settings = null)
         {
             ArtGenerator gen = new ArtGenerator();
             ImageFileIO IO = new ImageFileIO();
