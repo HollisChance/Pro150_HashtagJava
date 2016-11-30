@@ -23,6 +23,9 @@
         }
         @using (Html.BeginForm("SignUp", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
+            <div id="sign">
+
+            </div>
             //here stuuffss
             <strong>UserName:</strong>  <a id="textcomment">@Html.TextBoxFor(x => x.UserName) </a><br />
             <br />
