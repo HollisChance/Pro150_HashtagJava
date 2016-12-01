@@ -26,13 +26,36 @@ namespace HollisCAsciiArtLib.Model
         public int DarkValue
         {
             get { return darkColorThreshhold; }
-            set { darkColorThreshhold = value; }
+            set
+            {
+                if (value < LightValue)
+                {
+                    lightColorThreshhold = value;
+                }
+                else
+                {
+                    lightColorThreshhold = defaultLightValue;
+                    darkColorThreshhold = defaultDarkValue;
+                }
+            }
         }
 
         public int LightValue
         {
             get { return lightColorThreshhold; }
-            set { lightColorThreshhold = value; }
+            set
+            {
+                if (value > DarkValue)
+                {
+                    lightColorThreshhold = value;
+                }
+                else
+                {
+                    lightColorThreshhold = defaultLightValue;
+                    darkColorThreshhold = defaultDarkValue;
+                }
+                
+            }
         }
 
         public string LightChar

@@ -23,11 +23,11 @@
     <h2>Upload your picture</h2>
    <strong>Upload Below</strong><br />
     <input type="file" name="file" id="file" /><br />
-    <strong>Light Ascii Art Value: </strong>@Html.TextBox("LightChar", " ", opts)
-    <strong>Medium Ascii Art Value: </strong>@Html.TextBox("MedChar", "!", opts)
-    <strong>Dark Ascii Art Value: </strong>@Html.TextBox("DarkChar", "#", opts)
-    <strong>Dark threshold Value: </strong>@Html.TextBox("DarkValue", -11500000, opts)
-    <strong>Dark Ascii Art Value: </strong>@Html.TextBox("LightValue", -7500000, opts)
+    <strong>Light Ascii Art Value: </strong>@Html.TextBox("LightChar", " ", opts) <br />
+    <strong>Medium Ascii Art Value: </strong>@Html.TextBox("MedChar", "!", opts)    <br />
+    <strong>Dark Ascii Art Value: </strong>@Html.TextBox("DarkChar", "#", opts)<br />
+    <strong>Dark threshold Value (max -16777216): </strong>@Html.TextBox("DarkValue", -11500000, opts)<br />
+    <strong>Light threshold (min -1): </strong>@Html.TextBox("LightValue", -7500000, opts)<br />
     @*<input type="range" min="-1" max="-16777216" id="value"/>
     <a id="textcomment">@Html.TextBoxFor(x => x.DarkValue) </a><br />*@
     <input type="submit" text="Upload" />
