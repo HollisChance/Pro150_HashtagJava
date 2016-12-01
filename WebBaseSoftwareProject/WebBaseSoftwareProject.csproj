@@ -147,7 +147,7 @@
     <Resource Include="Images\SpaceJamlogoAscii.PNG" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
-    <Content Include="Style\Main.css" />
+    <Content Include="Content\Style\Main.css" />
     <Content Include="UserDBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>UserDBModel.edmx</DependentUpon>

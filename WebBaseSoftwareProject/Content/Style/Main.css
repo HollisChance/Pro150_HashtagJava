@@ -49,7 +49,10 @@ width:50%;
 {
     font-family: monospace;
 }
-#links
-{
-    color:white;
+a {
+    color: beige;
+}
+
+a:visited {
+    color: mintcream;
 }
