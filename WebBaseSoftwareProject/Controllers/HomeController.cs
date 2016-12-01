@@ -24,6 +24,13 @@ namespace WebBaseSoftwareProject.Controllers
             return View("LogIn");
         }
 
+        [HttpGet]
+        public ActionResult Download(User user)
+        {
+            List<Image> images = dbfilter.FetchUserImages(user.ID);
+            return View("Download", images);
+        }
+
         [HttpPost]
         public FileResult Download(Image image)
         {
@@ -68,19 +75,13 @@ namespace WebBaseSoftwareProject.Controllers
                 ViewBag.Message = "You have not specified a file.";
                 return View();
             }
-            return View("Download");
+            return Download(user);
         }
 
         [HttpGet]
         public ActionResult Upload(User user)
         {
             return View(user);
-        }
-        [HttpGet]
-        public ActionResult Download(User user)
-        {
-            List<Image> images = dbfilter.FetchUserImages(user.ID);
-            return View(images);
         }
 
         public ActionResult SignUp()
