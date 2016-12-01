@@ -27,6 +27,26 @@ namespace WebBaseSoftwareProject.Models
             return user;
         }
 
+        public string FetchUserNameById(int userId)
+        {
+            string user = null;
+            using (hashtag_javaEntities con = new hashtag_javaEntities())
+            {
+                user = con.Users.Where(u => u.ID == userId).FirstOrDefault().UserName;
+            }
+            return user;
+        }
+
+        public int FetchUserIdByImgId(int ImgId)
+        {
+            int user = 0;
+            using (hashtag_javaEntities con = new hashtag_javaEntities())
+            {
+                user = con.Images.Where(u => u.ImgId == ImgId).FirstOrDefault().User_ID;
+            }
+            return user;
+        }
+
         public bool Login(User passedUser)
         {
             bool isLoggedIn = false;
@@ -82,24 +102,27 @@ namespace WebBaseSoftwareProject.Models
             return imgStored;
         }
 
-        public void GetImageOrText(int ImgID)
+        public List<Image> FetchUserImages(int userId)
+        {
+            List<Image> images;
+            using (hashtag_javaEntities con = new hashtag_javaEntities())
+            {
+                //img.ReturnAscii(); will transfer to ascii and store it to blob
+                var imagesHolder = con.Images.Where(i => i.User_ID == userId);
+                images = imagesHolder.ToList<Image>();                
+            }
+            return images;
+        }
+
+        public byte[] GetText(int ImgID)
         {
             byte[] file;
             
             using (hashtag_javaEntities con = new hashtag_javaEntities())
             {
                 file = con.Images.Where(i => i.ImgId == ImgID).Single().StoredImg;
-
-                /*To return Image
-                using (System.Drawing.Image image = System.Drawing.Image.FromStream(new MemoryStream(file)))
-                {
-                    image.Save("output.jpg", ImageFormat.Jpeg);  // Or Png
-                }*/
-
-                //To write byte[] to text file
-                //File.WriteAllBytes("PlaceHolder", file);
-
             }
+            return file;
         }
     }
 }
