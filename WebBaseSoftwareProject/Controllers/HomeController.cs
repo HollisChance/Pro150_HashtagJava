@@ -69,8 +69,9 @@ namespace WebBaseSoftwareProject.Controllers
             else
             {
                 ViewBag.Message = "You have not specified a file.";
+                return View();
             }
-            return View();
+            return View("Download");
         }
 
         [HttpGet]
