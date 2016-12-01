@@ -10,7 +10,7 @@ namespace HollisCAsciiArtLib.Controller
 {
     public class ArtGenerator
     {
-        public static ArtOptions defaultOptions = new ArtOptions { DarkChar = "#", MedChar = "/s", LightChar = " ", LightValue = -1, DarkValue = 11500000 };
+        private ArtOptions defaultOptions = new ArtOptions { DarkChar = "#", MedChar = "/s", LightChar = " ", LightValue = -1, DarkValue = 11500000 };
         public string MakeArt(Image img, ArtOptions options = null)
         {
             if (options == null)

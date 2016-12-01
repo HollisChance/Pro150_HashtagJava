@@ -36,10 +36,13 @@ namespace WebBaseSoftwareProject.Controllers
         {
             ArtGenerator gen = new ArtGenerator();
             ImageFileIO IO = new ImageFileIO();
-            
+            //settings.DarkChar = Request["darkChar"];
+            //settings.MedChar = Request["medChar"];
+            //settings.LightChar = Request["lightChar"];
             MemoryStream target = new MemoryStream();
             file.InputStream.CopyTo(target);
             byte[] imageBytes = target.ToArray();
+            
 
             System.Drawing.Image img = new System.Drawing.Bitmap(target);
             //System.Drawing.Image img = ImageFileIO.ImageFromFile(@"C:\Users\chance\Documents\Visual Studio 2015\ProjectsCourse-Web\WebSoftwareProject\Pro150_HashtagJava\WebBaseSoftwareProject\Images\java_logo6.jpg");
@@ -47,7 +50,7 @@ namespace WebBaseSoftwareProject.Controllers
 
             if (img != null)
             {
-                ViewBag.Art = gen.MakeArt(img);
+                ViewBag.Art = gen.MakeArt(img, settings);
             }
             
             if (file != null && file.ContentLength > 0)

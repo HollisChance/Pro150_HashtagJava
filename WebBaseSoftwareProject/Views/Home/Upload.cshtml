@@ -1,7 +1,10 @@
 ﻿
+@using HollisCAsciiArtLib.Model
+
 @model User
 @{
     Layout = null;
+    ArtOptions opts = new ArtOptions() { DarkValue = -11500000, LightValue = -7500000 };
 }
 
 <!DOCTYPE html>
@@ -15,11 +18,16 @@
 <body>
     <h1>Upload your files to be converted to ascii versions.</h1>
     <div> 
-@using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype="multipart/form-data", id = "file" }))
+@using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype="multipart/form-data", id = "file", options = opts}))
 {
     <h2>Upload your picture</h2>
    <strong>Upload Below</strong><br />
     <input type="file" name="file" id="file" /><br />
+    <strong>Light Ascii Art Value: </strong>@Html.TextBox("LightChar", " ", opts)
+    <strong>Medium Ascii Art Value: </strong>@Html.TextBox("MedChar", "!", opts)
+    <strong>Dark Ascii Art Value: </strong>@Html.TextBox("DarkChar", "#", opts)
+    <strong>Dark threshold Value: </strong>@Html.TextBox("DarkValue", -11500000, opts)
+    <strong>Dark Ascii Art Value: </strong>@Html.TextBox("LightValue", -7500000, opts)
     @*<input type="range" min="-1" max="-16777216" id="value"/>
     <a id="textcomment">@Html.TextBoxFor(x => x.DarkValue) </a><br />*@
     <input type="submit" text="Upload" />
