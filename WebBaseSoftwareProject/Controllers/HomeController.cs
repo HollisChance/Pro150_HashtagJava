@@ -49,25 +49,28 @@ namespace WebBaseSoftwareProject.Controllers
             ArtGenerator gen = new ArtGenerator();
             ImageFileIO IO = new ImageFileIO();
             MemoryStream target = new MemoryStream();
-            file.InputStream.CopyTo(target);
-            byte[] imageBytes = target.ToArray();
-            
-            System.Drawing.Image img = new System.Drawing.Bitmap(target);
+            if (file != null)
+            {
+                file.InputStream.CopyTo(target);
+                byte[] imageBytes = target.ToArray();
 
-            if (img != null)
-            {
-                ViewBag.Art = gen.MakeArt(img, settings);
-            }
-            
-            if (file != null && file.ContentLength > 0)
-            {
-                try
+                System.Drawing.Image img = new System.Drawing.Bitmap(target);
+
+                if (img != null)
                 {
-                    dbfilter.StoreImage(ViewBag.art, user.ID);
+                    ViewBag.Art = gen.MakeArt(img, settings);
                 }
-                catch (Exception ex)
+
+                if (file != null && file.ContentLength > 0)
                 {
-                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                    try
+                    {
+                        dbfilter.StoreImage(ViewBag.art, user.ID);
+                    }
+                    catch (Exception ex)
+                    {
+                        ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                    }
                 }
             }
             else

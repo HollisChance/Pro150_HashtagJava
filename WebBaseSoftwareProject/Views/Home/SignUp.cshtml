@@ -32,7 +32,7 @@
                 <br />
                 <strong>Password:</strong>  <a id="textcomment">@Html.TextBoxFor(x => x.Password, new { Type = "password" })</a> <br />
                 <br />
-                <strong>Re-Enter Password:</strong>  <a id="textcomment">@Html.TextBox("checkword", checkword)</a> <br />
+                <strong>Re-Enter Password:</strong>  <a id="textcomment">@Html.TextBox("checkword", checkword, new { Type = "password" })</a> <br />
                 <br />
                 <input type="submit">
             }
